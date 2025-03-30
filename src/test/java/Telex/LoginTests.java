@@ -1,5 +1,8 @@
 package Telex;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -14,8 +17,13 @@ import java.net.URL;
 public class LoginTests {
     private static AndroidDriver driver;
 
+    ExtentSparkReporter spark = new ExtentSparkReporter("src/test/java/Reports/telex_report.html");
+    ExtentReports extent;
+
     @BeforeClass
-    public static void setUp() throws MalformedURLException {
+    public void setUp() throws MalformedURLException {
+        extent = new ExtentReports();
+        extent.attachReporter(spark);
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("platformVersion", "14");
@@ -26,10 +34,13 @@ public class LoginTests {
         caps.setCapability("automationName", "UiAutomator2");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), caps);
+
     }
 
-    @Test
+    @Test(priority = 1)
     public void testLoginWithMagicLink() {
+        ExtentTest test = extent.createTest("Login with Magic link").assignCategory("Login");
+
         System.out.println("Running Login with Magic Link Test");
 
         // Enter email address
@@ -39,6 +50,7 @@ public class LoginTests {
         driver.findElement(By.id("com.telex.app:id/magic_link_button")).click();
 
         // Verify magic link confirmation message is displayed
+
         Assert.assertTrue(
                 driver.findElement(By.id("com.telex.app:id/magic_link_sent_message")).isDisplayed(),
                 "Magic link was not sent successfully"
@@ -48,20 +60,26 @@ public class LoginTests {
 
 
     }
-    @Test
-    public void testEmptyEmailAndPassword () {
+
+    @Test(priority = 2)
+    public void testEmptyEmailAndPassword() {
+        ExtentTest test = extent.createTest("Login with empty email and password").assignCategory("Login");
         System.out.println("Running Empty Email & Password Test");
         driver.findElement(By.id("com.telex.app:id/emailaddress")).sendKeys("");
         driver.findElement(By.id("com.telex.app:id/password")).sendKeys("");
         driver.findElement(By.id("com.telex.app:id/login_button")).click();
 
+
         Assert.assertTrue(
                 driver.findElement(By.id("com.telex.app:id/error_message")).isDisplayed()
         );
+        test.pass("Test passed");
+
     }
 
-    @Test
-    public void testInvalidEmailFormat () {
+    @Test(priority = 3)
+    public void testInvalidEmailFormat() {
+        ExtentTest test = extent.createTest("Login with invalid email format").assignCategory("Login");
         System.out.println("Running Invalid Email Format Test");
         driver.findElement(By.id("com.telex.app:id/emailaddress")).sendKeys("invalidEmail");
         driver.findElement(By.id("com.telex.app:id/password")).sendKeys("Password@2");
@@ -70,10 +88,13 @@ public class LoginTests {
         Assert.assertTrue(
                 driver.findElement(By.id("com.telex.app:id/error_message")).isDisplayed()
         );
+        test.pass("Test passed");
+
     }
 
-    @Test
-    public void testIncorrectPassword () {
+    @Test(priority = 4)
+    public void testIncorrectPassword() {
+        extent.createTest("Login with incorrect password").assignCategory("Login");
         System.out.println("Running Incorrect Password Test");
         driver.findElement(By.id("com.telex.app:id/emailaddress")).sendKeys("testuser@example.com");
         driver.findElement(By.id("com.telex.app:id/password")).sendKeys("WrongPassword123");
@@ -84,8 +105,9 @@ public class LoginTests {
         );
     }
 
-    @Test
-    public void testNonExistentAccount () {
+    @Test(priority = 5)
+    public void testNonExistentAccount() {
+        extent.createTest("Login with invalid non existence account").assignCategory("Login");
         System.out.println("Running Non-Existent Account Test");
         driver.findElement(By.id("com.telex.app:id/emailaddress")).sendKeys("fakeuser@example.com");
         driver.findElement(By.id("com.telex.app:id/password")).sendKeys("Password@2");
@@ -96,8 +118,9 @@ public class LoginTests {
         );
     }
 
-    @Test
-    public void testValidEmailEmptyPassword () {
+    @Test(priority = 6)
+    public void testValidEmailEmptyPassword() {
+        extent.createTest("Login with valid email and empty password").assignCategory("Login");
         System.out.println("Running Valid Email but Empty Password Test");
         driver.findElement(By.id("com.telex.app:id/emailaddress")).sendKeys("testuser@example.com");
         driver.findElement(By.id("com.telex.app:id/password")).sendKeys("");
@@ -108,8 +131,9 @@ public class LoginTests {
         );
     }
 
-    @Test
-    public void testValidPasswordEmptyEmail () {
+    @Test(priority = 7)
+    public void testValidPasswordEmptyEmail() {
+        extent.createTest("Login with invalid password and empty email").assignCategory("Login");
         System.out.println("Running Valid Password but Empty Email Test");
         driver.findElement(By.id("com.telex.app:id/emailaddress")).sendKeys("");
         driver.findElement(By.id("com.telex.app:id/password")).sendKeys("Password@2");
@@ -120,8 +144,9 @@ public class LoginTests {
         );
     }
 
-    @Test
-    public void testSpecialCharactersInEmail () {
+    @Test(priority = 8)
+    public void testSpecialCharactersInEmail() {
+        extent.createTest("Login with special character in the email").assignCategory("Login");
         System.out.println("Running Special Characters in Email Test");
         driver.findElement(By.id("com.telex.app:id/emailaddress")).sendKeys("user!@example.com");
         driver.findElement(By.id("com.telex.app:id/password")).sendKeys("Password@2");
@@ -132,8 +157,9 @@ public class LoginTests {
         );
     }
 
-    @Test
-    public void testWhitespaceInEmailOrPassword () {
+    @Test(priority = 9)
+    public void testWhitespaceInEmailOrPassword() {
+        extent.createTest("Login with white space in email and password").assignCategory("Login");
         System.out.println("Running Whitespace in Email or Password Test");
         driver.findElement(By.id("com.telex.app:id/emailaddress")).sendKeys(" testuser@example.com ");
         driver.findElement(By.id("com.telex.app:id/password")).sendKeys(" Password@2 ");
@@ -144,8 +170,9 @@ public class LoginTests {
         );
     }
 
-    @Test
-    public void testCaseSensitivityInEmailAndPassword () {
+    @Test(priority = 10)
+    public void testCaseSensitivityInEmailAndPassword() {
+        extent.createTest("Case sensitivity on email and password").assignCategory("Login");
         System.out.println("Running Case Sensitivity Test");
         driver.findElement(By.id("com.telex.app:id/emailaddress")).sendKeys("TestUser@Example.com");
         driver.findElement(By.id("com.telex.app:id/password")).sendKeys("PASSWORD@2");
@@ -155,8 +182,11 @@ public class LoginTests {
                 driver.findElement(By.id("com.telex.app:id/error_message")).isDisplayed()
         );
     }
+
     @AfterClass
-    public static void tearDown () {
+    public void tearDown() {
+        System.out.println("Inside the tear down method");
+        extent.flush();
         if (driver != null) {
             driver.quit();
         }
