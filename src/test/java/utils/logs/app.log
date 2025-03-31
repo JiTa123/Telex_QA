@@ -1,0 +1,38 @@
+[INFO ] 2025-03-31 10:29:21.228 [main] Listener - Telex tests are starting
+[ERROR] 2025-03-31 10:29:35.069 [main] Listener - testLoginWithMagicLink test has failed.
+[ERROR] 2025-03-31 10:29:35.918 [main] Listener - testEmptyEmailAndPassword test has failed.
+[ERROR] 2025-03-31 10:29:36.569 [main] Listener - testInvalidEmailFormat test has failed.
+[ERROR] 2025-03-31 10:29:36.856 [main] Listener - testIncorrectPassword test has failed.
+[ERROR] 2025-03-31 10:29:37.160 [main] Listener - testNonExistentAccount test has failed.
+[ERROR] 2025-03-31 10:29:37.622 [main] Listener - testValidEmailEmptyPassword test has failed.
+[ERROR] 2025-03-31 10:29:37.931 [main] Listener - testValidPasswordEmptyEmail test has failed.
+[ERROR] 2025-03-31 10:29:38.202 [main] Listener - testSpecialCharactersInEmail test has failed.
+[ERROR] 2025-03-31 10:29:38.461 [main] Listener - testWhitespaceInEmailOrPassword test has failed.
+[ERROR] 2025-03-31 10:29:38.702 [main] Listener - testCaseSensitivityInEmailAndPassword test has failed.
+[INFO ] 2025-03-31 10:29:39.536 [main] Listener - Telex tests are ending
+[INFO ] 2025-03-31 10:43:50.795 [main] Listener - Telex tests are starting
+[ERROR] 2025-03-31 10:44:22.136 [main] Listener - testLoginWithMagicLink test has failed.
+[ERROR] 2025-03-31 10:44:24.227 [main] Listener - testEmptyEmailAndPassword test has failed.
+[ERROR] 2025-03-31 10:44:24.589 [main] Listener - testInvalidEmailFormat test has failed.
+[ERROR] 2025-03-31 10:44:24.858 [main] Listener - testIncorrectPassword test has failed.
+[ERROR] 2025-03-31 10:44:25.119 [main] Listener - testNonExistentAccount test has failed.
+[ERROR] 2025-03-31 10:44:25.364 [main] Listener - testValidEmailEmptyPassword test has failed.
+[ERROR] 2025-03-31 10:44:25.591 [main] Listener - testValidPasswordEmptyEmail test has failed.
+[ERROR] 2025-03-31 10:44:25.832 [main] Listener - testSpecialCharactersInEmail test has failed.
+[ERROR] 2025-03-31 10:44:26.049 [main] Listener - testWhitespaceInEmailOrPassword test has failed.
+[ERROR] 2025-03-31 10:44:26.251 [main] Listener - testCaseSensitivityInEmailAndPassword test has failed.
+[INFO ] 2025-03-31 10:44:26.845 [main] Listener - Telex tests are ending
+[INFO ] 2025-03-31 11:30:49.458 [main] Listener - Telex tests are starting
+[INFO ] 2025-03-31 11:31:18.638 [main] Listener - Telex tests are ending
+[INFO ] 2025-03-31 11:33:19.686 [main] Listener - Telex tests are starting
+[ERROR] 2025-03-31 11:33:35.293 [main] Listener - testLoginWithMagicLink test has failed.
+[ERROR] 2025-03-31 11:33:36.099 [main] Listener - testEmptyEmailAndPassword test has failed.
+[ERROR] 2025-03-31 11:33:36.524 [main] Listener - testInvalidEmailFormat test has failed.
+[ERROR] 2025-03-31 11:33:36.919 [main] Listener - testIncorrectPassword test has failed.
+[ERROR] 2025-03-31 11:33:37.184 [main] Listener - testNonExistentAccount test has failed.
+[ERROR] 2025-03-31 11:33:37.407 [main] Listener - testValidEmailEmptyPassword test has failed.
+[ERROR] 2025-03-31 11:33:37.685 [main] Listener - testValidPasswordEmptyEmail test has failed.
+[ERROR] 2025-03-31 11:33:37.929 [main] Listener - testSpecialCharactersInEmail test has failed.
+[ERROR] 2025-03-31 11:33:38.150 [main] Listener - testWhitespaceInEmailOrPassword test has failed.
+[ERROR] 2025-03-31 11:33:38.374 [main] Listener - testCaseSensitivityInEmailAndPassword test has failed.
+[INFO ] 2025-03-31 11:33:38.922 [main] Listener - Telex tests are ending
